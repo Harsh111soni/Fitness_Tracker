@@ -10,11 +10,10 @@ branches:
 - master
 
 jobs:
-
 build-and-analyze:
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - name: Checkout Source
     uses: actions/checkout@v4
@@ -35,25 +34,25 @@ steps:
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-```
+
 
 quality-gate:
 needs: build-and-analyze
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - name: Check Quality Gate
     uses: SonarSource/sonarqube-quality-gate-action@master
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-```
+
 
 docker-build:
 needs: quality-gate
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - uses: actions/checkout@v4
 
@@ -72,4 +71,3 @@ steps:
     run: |
       docker push harsh0soni/fitness-tracker:${{ github.run_number }}
       docker push harsh0soni/fitness-tracker:latest
-```
