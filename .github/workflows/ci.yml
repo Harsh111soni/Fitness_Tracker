@@ -16,7 +16,6 @@ runs-on: ubuntu-latest
 
 ```
 steps:
-
   - name: Checkout Source
     uses: actions/checkout@v4
 
@@ -44,7 +43,6 @@ runs-on: ubuntu-latest
 
 ```
 steps:
-
   - name: Check Quality Gate
     uses: SonarSource/sonarqube-quality-gate-action@master
     env:
@@ -53,12 +51,10 @@ steps:
 
 docker-build:
 needs: quality-gate
-
-```
 runs-on: ubuntu-latest
 
+```
 steps:
-
   - uses: actions/checkout@v4
 
   - name: Login to DockerHub
