@@ -67,7 +67,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
 
-    docker-build:
+  docker-build:
     needs: build-and-analyze
     runs-on: ubuntu-latest
 
